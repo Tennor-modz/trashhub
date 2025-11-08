@@ -586,6 +586,63 @@
             font-size: 0.9em;
         }
 
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #444;
+            color: white;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: #2a2a2a;
+        }
+
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #ce93d8;
+        }
+
+        .service-title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .service-description {
+            color: #ccc;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .service-btn {
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: transform 0.2s ease;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -693,6 +750,58 @@
                                 <div class="stat-value">99.1%</div>
                                 <div class="stat-label">Uptime</div>
                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Cards Grid -->
+                    <div class="card-grid">
+                        <div class="service-card" onclick="switchTab('bots')">
+                            <div class="service-icon">🤖</div>
+                            <h3 class="service-title">Bots</h3>
+                            <p class="service-description">Deploy and manage various WhatsApp bots including Trashcore MD and Ultra.</p>
+                            <button class="service-btn">Manage Bots</button>
+                        </div>
+                        
+                        <div class="service-card" onclick="switchTab('sessions')">
+                            <div class="service-icon">📱</div>
+                            <h3 class="service-title">Sessions</h3>
+                            <p class="service-description">Generate and manage your WhatsApp session IDs. Securely link your devices.</p>
+                            <button class="service-btn">Generate Session</button>
+                        </div>
+                        
+                        <div class="service-card" onclick="switchTab('alchat')">
+                            <div class="service-icon">💬</div>
+                            <h3 class="service-title">Al Chat</h3>
+                            <p class="service-description">Access all your bot conversations in one interface. Manage multiple chat sessions.</p>
+                            <button class="service-btn">Open Chat</button>
+                        </div>
+                        
+                        <div class="service-card" onclick="switchTab('urlconverter')">
+                            <div class="service-icon">🔗</div>
+                            <h3 class="service-title">URL Converter</h3>
+                            <p class="service-description">Convert media links, images, and files to direct URLs. Share and access content.</p>
+                            <button class="service-btn">Convert URLs</button>
+                        </div>
+                        
+                        <div class="service-card" onclick="switchTab('musichub')">
+                            <div class="service-icon">🎵</div>
+                            <h3 class="service-title">Music Hub</h3>
+                            <p class="service-description">Stream, download, and manage your favorite tracks. Access music from platforms.</p>
+                            <button class="service-btn">Listen Now</button>
+                        </div>
+                        
+                        <div class="service-card" onclick="switchTab('tutorials')">
+                            <div class="service-icon">📚</div>
+                            <h3 class="service-title">Tutorials</h3>
+                            <p class="service-description">Step-by-step setup & deployment guides for Trashcore services.</p>
+                            <button class="service-btn">View Tutorials</button>
+                        </div>
+                        
+                        <div class="service-card" onclick="switchTab('support')">
+                            <div class="service-icon">📞</div>
+                            <h3 class="service-title">Support</h3>
+                            <p class="service-description">Get help and support through various contact channels.</p>
+                            <button class="service-btn">Contact Support</button>
                         </div>
                     </div>
                 </div>
@@ -830,7 +939,7 @@
                             <span class="contact-icon">📧</span>
                             <div class="contact-info">
                                 <div class="contact-title">Email Support</div>
-                                <div class="contact-details"></div>
+                                <div class="contact-details">trashcoreclient@gmail.com</div>
                             </div>
                             <span class="contact-btn btn">Email</span>
                         </a>
@@ -838,7 +947,7 @@
                             <span class="contact-icon">📱</span>
                             <div class="contact-info">
                                 <div class="contact-title">WhatsApp</div>
-                                <div class="contact-details"></div>
+                                <div class="contact-details">+254 104 245659</div>
                             </div>
                             <span class="contact-btn btn">Chat</span>
                         </a>
@@ -846,7 +955,7 @@
                             <span class="contact-icon">💬</span>
                             <div class="contact-info">
                                 <div class="contact-title">Telegram</div>
-                                <div class="contact-details"></div>
+                                <div class="contact-details">@trashcoresystem</div>
                             </div>
                             <span class="contact-btn btn">Join</span>
                         </a>
@@ -854,7 +963,7 @@
                             <span class="contact-icon">📺</span>
                             <div class="contact-info">
                                 <div class="contact-title">YouTube Channel</div>
-                                <div class="contact-details"></div>
+                                <div class="contact-details">@giddytennor</div>
                             </div>
                             <span class="contact-btn btn">Subscribe</span>
                         </a>
