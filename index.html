@@ -33,6 +33,58 @@
             --btn-text: white;
         }
 
+        /* Dark theme */
+        .dark-theme {
+            --primary-gradient: linear-gradient(135deg, #424242 0%, #212121 100%);
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --card-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            --menu-bg: #2d2d2d;
+            --menu-border: #404040;
+            --btn-bg: linear-gradient(135deg, #6a1b9a 0%, #4527a0 100%);
+            --btn-text: white;
+        }
+
+        /* Green theme */
+        .green-theme {
+            --primary-gradient: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+            --bg-color: #e8f5e9;
+            --text-color: #1b5e20;
+            --card-bg: #4caf50;
+            --card-shadow: 0 20px 40px rgba(76, 175, 80, 0.3);
+            --menu-bg: #e8f5e9;
+            --menu-border: #a5d6a7;
+            --btn-bg: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+            --btn-text: white;
+        }
+
+        /* Default theme */
+        .default-theme {
+            --primary-gradient: linear-gradient(135deg, #2196f3 0%, #21cbf3 100%);
+            --bg-color: #e3f2fd;
+            --text-color: #0d47a1;
+            --card-bg: #2196f3;
+            --card-shadow: 0 20px 40px rgba(33, 150, 243, 0.3);
+            --menu-bg: #e3f2fd;
+            --menu-border: #90caf9;
+            --btn-bg: linear-gradient(135deg, #2196f3 0%, #21cbf3 100%);
+            --btn-text: white;
+        }
+
+        /* White theme */
+        .white-theme {
+            --primary-gradient: linear-gradient(135deg, #757575 0%, #424242 100%);
+            --bg-color: #fafafa;
+            --text-color: #212121;
+            --card-bg: #ffffff;
+            --card-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            --menu-bg: #ffffff;
+            --menu-border: #e0e0e0;
+            --btn-bg: linear-gradient(135deg, #757575 0%, #424242 100%);
+            --btn-text: white;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -63,6 +115,7 @@
             color: white;
             padding: 30px;
             text-align: center;
+            position: relative; /* Added for GIF positioning */
         }
 
         .header h1 {
@@ -76,11 +129,32 @@
             opacity: 0.9;
         }
 
+        /* Theme Toggle Button - moved to top right */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Top right corner */
+            background: #4caf50; /* Green background */
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+            z-index: 1000;
+            border: none;
+        }
+
+        /* Menu Toggle Button - moved to top left */
         .menu-toggle {
             position: absolute;
             top: 20px;
-            left: 20px; /* Changed to left */
-            background: #7e57c2;
+            left: 20px; /* Top left corner */
+            background: #7e57c2; /* Purple background */
             color: white;
             width: 44px;
             height: 44px;
@@ -115,7 +189,7 @@
         .menu-items {
             position: absolute;
             top: 70px;
-            left: 20px; /* Changed to left */
+            left: 20px; /* Left aligned */
             background: var(--menu-bg);
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -650,65 +724,101 @@
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 15px;
         }
 
         .service-btn {
-            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
-            color: white;
             padding: 12px 20px;
-            border: none;
             border-radius: 25px;
-            cursor: pointer;
-            font-size: 1em;
+            text-decoration: none;
+            font-size: 0.9em;
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            transition: transform 0.2s ease;
+            white-space: nowrap;
             flex: 1;
             min-width: 100px;
         }
 
         .service-btn.visit {
             background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+            color: white;
         }
 
         .service-btn.details {
             background: linear-gradient(135deg, #7e57c2 0%, #5e35b1 100%);
+            color: white;
         }
 
         .service-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        }
-
-        .service-btn.visit:hover {
-            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
-        }
-
-        .service-btn.details:hover {
-            background: linear-gradient(135deg, #5e35b1 0%, #7e57c2 100%);
-        }
-
-        .service-btn:active {
-            transform: translateY(1px);
-        }
-
-        .direct-url {
-            background: #7e57c2;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            margin-top: 10px;
-            display: inline-block;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .direct-url:hover {
-            background: #5e35b1;
             transform: translateY(-2px);
+        }
+
+        .details-panel {
+            display: none;
+            background: #8d6eaa; /* Slightly darker purple */
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            border: 1px solid #7e57c2;
+            color: white;
+            animation: slideDown 0.3s ease;
+        }
+
+        .details-panel.show {
+            display: block;
+        }
+
+        .details-content {
+            line-height: 1.6;
+        }
+
+        .details-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #f3e5f5; /* Lighter purple */
+        }
+
+        .details-text {
+            color: #e1bee7; /* Light purple text */
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .details-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #6a1b9a; /* Darker purple */
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+
+        .details-link:hover {
+            background: #4527a0; /* Even darker purple */
+        }
+
+        /* GIF Container in Header */
+        .gif-container {
+            position: absolute;
+            top: 20px;
+            right: 80px; /* Positioned to the left of the theme toggle */
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 999;
+            border: 2px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         @keyframes popIn {
@@ -735,6 +845,11 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
@@ -754,8 +869,16 @@
                 margin-top: 10px;
             }
             
-            .service-btns {
-                flex-direction: column;
+            .gif-container {
+                top: 80px; /* Move below the menu/buttons on mobile */
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .theme-toggle, .menu-toggle {
+                position: static;
+                margin: 10px;
             }
         }
     </style>
@@ -763,23 +886,28 @@
 <body class="purple-theme">
     <div class="container">
         <div class="header">
-            <h1>Trashcore System Dashboard</h1>
+            <!-- GIF Container in Header -->
+            <div class="gif-container">
+                <img src="https://files.catbox.moe/ezyv8w.mp4" alt="Animated Logo" style="width:100%;height:100%;">
+            </div>
+
+            <!-- Theme Toggle Button in Top Right -->
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-palette"></i>
+            </button>
+
+            <!-- Menu Toggle Button in Top Left -->
+            <button class="menu-toggle" id="menuToggle">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+
+            <h1>🤖 Trashcore System Dashboard</h1>
             <p>Manage Bots, Sessions, and Files in one place</p>
         </div>
-
-        <!-- Menu Toggle Button with Hamburger Icon -->
-        <button class="menu-toggle" id="menuToggle">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-
-        <!-- PWA Install Button -->
-        <button class="menu-toggle" id="installBtn" style="top: 20px; right: 20px; left: auto; display: none;">
-            <i class="fas fa-download"></i>
-        </button>
 
         <!-- Menu Items -->
         <div class="menu-items" id="menuItems">
@@ -825,15 +953,11 @@
                                 <div class="stat-label">Forks</div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-value" id="starsCount">1.2k</div>
-                                <div class="stat-label">Stars</div>
-                            </div>
-                            <div class="stat-card">
                                 <div class="stat-value" id="visitorsCount">1,234</div>
                                 <div class="stat-label">Visits</div>
                             </div>
                             <div class="stat-card">
-                                <div class="stat-value">99.1%</div>
+                                <div class="stat-value">99.9%</div>
                                 <div class="stat-label">Uptime</div>
                             </div>
                         </div>
@@ -841,94 +965,122 @@
                     
                     <!-- Service Cards Grid -->
                     <div class="card-grid">
-                        <div class="service-card" onclick="switchTab('bots')">
+                        <div class="service-card">
                             <div class="service-icon">🤖</div>
                             <h3 class="service-title">Trashcore Bots</h3>
                             <p class="service-description">Deploy and manage various WhatsApp bots including Trashcore MD and Ultra. One-click deployment and customization.</p>
                             <div class="service-btns">
-                                <button class="service-btn visit" onclick="visitTrashcoreBot(); event.stopPropagation();">Visit</button>
-                                <button class="service-btn details" onclick="switchTab('bots'); event.stopPropagation();">Details</button>
+                                <button class="service-btn visit" onclick="visitTrashcoreBot()">Visit</button>
+                                <button class="service-btn details" onclick="toggleDetails('bots')">Details</button>
                             </div>
-                            <div class="direct-url" onclick="copyToClipboard('mydomain.com/bots'); event.stopPropagation();">
-                                mydomain.com/bots
+                            <div class="details-panel" id="botsDetails">
+                                <div class="details-content">
+                                    <div class="details-title">About Trashcore Bots</div>
+                                    <div class="details-text">Trashcore Bots are advanced WhatsApp automation systems that provide various functionalities including message automation, media sharing, and group management. They are built on Node.js and can be deployed on various platforms.</div>
+                                    <a href="https://www.trashcore-ultra.zone.id/" class="details-link" target="_blank">Learn More</a>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="service-card" onclick="switchTab('sessions')">
+                        <div class="service-card">
                             <div class="service-icon">📱</div>
                             <h3 class="service-title">Session Management</h3>
                             <p class="service-description">Generate and manage your WhatsApp session IDs. Securely link your devices with QR scanning technology.</p>
                             <div class="service-btns">
-                                <button class="service-btn visit" onclick="visitSessionPairing(); event.stopPropagation();">Visit</button>
-                                <button class="service-btn details" onclick="switchTab('sessions'); event.stopPropagation();">Details</button>
+                                <button class="service-btn visit" onclick="visitSessionPairing()">Visit</button>
+                                <button class="service-btn details" onclick="toggleDetails('sessions')">Details</button>
                             </div>
-                            <div class="direct-url" onclick="copyToClipboard('mydomain.com/sessions'); event.stopPropagation();">
-                                mydomain.com/sessions
+                            <div class="details-panel" id="sessionsDetails">
+                                <div class="details-content">
+                                    <div class="details-title">About Session Management</div>
+                                    <div class="details-text">Session Management allows you to generate secure WhatsApp session IDs. Using QR code scanning, you can safely link your devices to the bot system without sharing credentials.</div>
+                                    <a href="https://trashcore-pairing-385361a48654.herokuapp.com/pair" class="details-link" target="_blank">Get Session</a>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="service-card" onclick="switchTab('alchat')">
+                        <div class="service-card">
                             <div class="service-icon">💬</div>
                             <h3 class="service-title">Al Chat Interface</h3>
                             <p class="service-description">Access all your bot conversations in one interface. Manage multiple chat sessions with our AI assistant.</p>
                             <div class="service-btns">
-                                <button class="service-btn visit" onclick="visitAlChat(); event.stopPropagation();">Visit</button>
-                                <button class="service-btn details" onclick="switchTab('alchat'); event.stopPropagation();">Details</button>
+                                <button class="service-btn visit" onclick="visitAlChat()">Visit</button>
+                                <button class="service-btn details" onclick="toggleDetails('alchat')">Details</button>
                             </div>
-                            <div class="direct-url" onclick="copyToClipboard('mydomain.com/alchat'); event.stopPropagation();">
-                                mydomain.com/alchat
+                            <div class="details-panel" id="alchatDetails">
+                                <div class="details-content">
+                                    <div class="details-title">About Al Chat Interface</div>
+                                    <div class="details-text">The Al Chat Interface consolidates all your bot conversations into a single dashboard. Manage multiple chat sessions simultaneously and interact with our AI assistant for enhanced functionality.</div>
+                                    <a href="https://www.drexteral.zone.id" class="details-link" target="_blank">Open Chat</a>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="service-card" onclick="switchTab('urlconverter')">
+                        <div class="service-card">
                             <div class="service-icon">🔗</div>
                             <h3 class="service-title">URL Converter</h3>
                             <p class="service-description">Convert media links, images, and files to direct URLs. Share and access content with our fast converter.</p>
                             <div class="service-btns">
-                                <button class="service-btn visit" onclick="visitURLConverter(); event.stopPropagation();">Visit</button>
-                                <button class="service-btn details" onclick="switchTab('urlconverter'); event.stopPropagation();">Details</button>
+                                <button class="service-btn visit" onclick="visitURLConverter()">Visit</button>
+                                <button class="service-btn details" onclick="toggleDetails('urlconverter')">Details</button>
                             </div>
-                            <div class="direct-url" onclick="copyToClipboard('mydomain.com/urlconverter'); event.stopPropagation();">
-                                mydomain.com/urlconverter
+                            <div class="details-panel" id="urlconverterDetails">
+                                <div class="details-content">
+                                    <div class="details-title">About URL Converter</div>
+                                    <div class="details-text">The URL Converter transforms media links, images, and files into direct downloadable URLs. This service makes it easy to share and access content across different platforms.</div>
+                                    <a href="https://trashuploads.zone.id/" class="details-link" target="_blank">Convert URLs</a>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="service-card" onclick="switchTab('musichub')">
+                        <div class="service-card">
                             <div class="service-icon">🎵</div>
                             <h3 class="service-title">Music Hub</h3>
                             <p class="service-description">Stream, download, and manage your favorite tracks. Access music from multiple platforms in one place.</p>
                             <div class="service-btns">
-                                <button class="service-btn visit" onclick="visitMusicHub(); event.stopPropagation();">Visit</button>
-                                <button class="service-btn details" onclick="switchTab('musichub'); event.stopPropagation();">Details</button>
+                                <button class="service-btn visit" onclick="visitMusicHub()">Visit</button>
+                                <button class="service-btn details" onclick="toggleDetails('musichub')">Details</button>
                             </div>
-                            <div class="direct-url" onclick="copyToClipboard('mydomain.com/musichub'); event.stopPropagation();">
-                                mydomain.com/musichub
+                            <div class="details-panel" id="musichubDetails">
+                                <div class="details-content">
+                                    <div class="details-title">About Music Hub</div>
+                                    <div class="details-text">The Music Hub provides streaming and download capabilities for your favorite tracks. Access music from multiple platforms and manage your collection in one place.</div>
+                                    <a href="https://trashcoredownloader.zone.id/" class="details-link" target="_blank">Listen Now</a>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="service-card" onclick="switchTab('tutorials')">
+                        <div class="service-card">
                             <div class="service-icon">📚</div>
                             <h3 class="service-title">Learning Resources</h3>
                             <p class="service-description">Step-by-step setup & deployment guides for Trashcore services. Video tutorials and documentation.</p>
                             <div class="service-btns">
-                                <button class="service-btn visit" onclick="window.open('https://youtube.com/@giddytennor', '_blank'); event.stopPropagation();">Visit</button>
-                                <button class="service-btn details" onclick="switchTab('tutorials'); event.stopPropagation();">Details</button>
+                                <button class="service-btn visit" onclick="window.open('https://youtube.com/@giddytennor', '_blank')">Visit</button>
+                                <button class="service-btn details" onclick="switchTab('tutorials')">Details</button>
                             </div>
-                            <div class="direct-url" onclick="copyToClipboard('mydomain.com/tutorials'); event.stopPropagation();">
-                                mydomain.com/tutorials
+                            <div class="details-panel" id="tutorialsDetails">
+                                <div class="details-content">
+                                    <div class="details-title">About Learning Resources</div>
+                                    <div class="details-text">Comprehensive tutorials and guides for setting up and deploying Trashcore services. Access video tutorials, documentation, and step-by-step instructions for successful implementation.</div>
+                                    <a href="https://github.com/Tennor-modz" class="details-link" target="_blank">View Resources</a>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="service-card" onclick="switchTab('support')">
+                        <div class="service-card">
                             <div class="service-icon">📞</div>
                             <h3 class="service-title">Support Center</h3>
                             <p class="service-description">Get help and support through various contact channels. Join our community for assistance.</p>
                             <div class="service-btns">
-                                <button class="service-btn visit" onclick="window.open('mailto:trashcoreclient@gmail.com', '_blank'); event.stopPropagation();">Visit</button>
-                                <button class="service-btn details" onclick="switchTab('support'); event.stopPropagation();">Details</button>
+                                <button class="service-btn visit" onclick="window.open('mailto:trashcoreclient@gmail.com', '_blank')">Visit</button>
+                                <button class="service-btn details" onclick="switchTab('support')">Details</button>
                             </div>
-                            <div class="direct-url" onclick="copyToClipboard('mydomain.com/support'); event.stopPropagation();">
-                                mydomain.com/support
+                            <div class="details-panel" id="supportDetails">
+                                <div class="details-content">
+                                    <div class="details-title">About Support Center</div>
+                                    <div class="details-text">Get assistance through multiple support channels. Reach out via email, WhatsApp, Telegram, or join our YouTube community for help with Trashcore services.</div>
+                                    <a href="https://wa.me/254104245659" class="details-link" target="_blank">Contact Support</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1209,6 +1361,48 @@
             }
         });
 
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeKey = 'trashcoreTheme';
+        const savedTheme = localStorage.getItem(themeKey) || 'purple';
+        
+        // Apply saved theme
+        body.classList.add(`${savedTheme}-theme`);
+        
+        themeToggle.addEventListener('click', function() {
+            const themes = ['purple', 'dark', 'green', 'default', 'white'];
+            const currentTheme = body.className.replace('-theme', '').split(' ')[0];
+            const currentIndex = themes.indexOf(currentTheme);
+            const nextIndex = (currentIndex + 1) % themes.length;
+            const nextTheme = themes[nextIndex];
+            
+            // Remove current theme class
+            body.classList.remove(`${currentTheme}-theme`);
+            // Add new theme class
+            body.classList.add(`${nextTheme}-theme`);
+            // Save to localStorage
+            localStorage.setItem(themeKey, nextTheme);
+            
+            showNotification(`Switched to ${nextTheme} theme`, 'success');
+        });
+
+        // Details toggle functionality
+        function toggleDetails(serviceId) {
+            const detailsPanel = document.getElementById(`${serviceId}Details`);
+            const allPanels = document.querySelectorAll('.details-panel');
+            
+            // Close all other panels
+            allPanels.forEach(panel => {
+                if (panel !== detailsPanel) {
+                    panel.classList.remove('show');
+                }
+            });
+            
+            // Toggle the clicked panel
+            detailsPanel.classList.toggle('show');
+        }
+
         // Initialize stats with dynamic data
         document.addEventListener('DOMContentLoaded', function() {
             // Simulate fetching GitHub stats
@@ -1231,51 +1425,6 @@
 
             console.log('Trashcore System Dashboard loaded with purple theme');
         });
-
-        // PWA Install Prompt
-        let deferredPrompt;
-        const installBtn = document.getElementById('installBtn');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installBtn.style.display = 'flex';
-        });
-
-        installBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') {
-                    console.log('User accepted the install prompt');
-                }
-                deferredPrompt = null;
-                installBtn.style.display = 'none';
-            }
-        });
-
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch(registrationError => {
-                        console.log('SW registration failed: ', registrationError);
-                    });
-            });
-        }
-
-        // Copy to clipboard function
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showNotification('Copied to clipboard: ' + text, 'success');
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                showNotification('Failed to copy URL', 'error');
-            });
-        }
     </script>
 </body>
 </html>
